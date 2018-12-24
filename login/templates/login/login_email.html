@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+    <base href="{{ base }}">
+{% endblock %}
+
+{% block content %}
+    <div class="login-form">
+        <div class="mdc-elevation--z6">
+            <img src="{% static "img/logo.png" %}" alt="Louise Misell Interiors logo">
+            
+            <p class="mdc-typography--body1">
+                Hello!<br>
+                Someone has requested to login with your email, if this was you follow this link to login. <br>
+                If not no need to worry, simply delete this email.
+            </p>
+            
+            <p class="mdc-typography--body1">
+                <a href="{{ link }}">{{ link }}</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

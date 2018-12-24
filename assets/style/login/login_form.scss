@@ -1,0 +1,29 @@
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  > div {
+    max-width: 350px;
+    padding: 20px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .error {
+    color: $mdc-theme-error;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: auto;
+
+    button {
+      margin: 15px 0 0;
+    }
+  }
+}

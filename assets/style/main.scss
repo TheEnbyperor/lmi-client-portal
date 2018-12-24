@@ -1,0 +1,17 @@
+$mdc-theme-primary: #2D76C4;
+
+@import "@material/button/mdc-button";
+@import "@material/typography/mdc-typography";
+@import "@material/textfield/mdc-text-field";
+@import "@material/elevation/mdc-elevation";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+@import "login/login_form";
