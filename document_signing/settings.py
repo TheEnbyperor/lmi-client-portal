@@ -128,3 +128,9 @@ SESSION_COOKIE_AGE = 3600
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"), # your static/ files folder
 ]
+
+EMAIL_HOST = 'mail.fluidmedia.wales'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'noreply@noreply.louisemisellinteriors.co.uk'
+EMAIL_HOST_PASSWORD = '7fpB4892fQ7EFDX9aNPY5HZ3jur#Mz3Y'
+EMAIL_USE_SSL = True
