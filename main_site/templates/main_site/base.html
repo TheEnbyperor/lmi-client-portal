@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+
+    <aside class="mdc-drawer mdc-drawer--modal" id="app-drawer">
+        <div class="mdc-drawer__header">
+            <img src="{% static 'img/logo.png' %}" alt="Louise Misell Interiors logo">
+            <h3 class="mdc-drawer__title">Louise Misell Interiors</h3>
+            <h6 class="mdc-drawer__subtitle">{{ user.email }}</h6>
+        </div>
+        <div class="mdc-drawer__content">
+            <div class="mdc-list">
+               {% url 'main_site:dashboard' as dashboard_url %}
+                <a class="mdc-list-item{% if request.get_full_path == dashboard_url %} mdc-list-item--activated{% endif %}" href="{{ dashboard_url }}">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                    <span class="mdc-list-item__text">Home</span>
+                </a>
+               {% url 'document_signing:index' as document_signing_url %}
+                <a class="mdc-list-item{% if request.get_full_path == document_signing_url %} mdc-list-item--activated{% endif %}" href="{{ document_signing_url }}">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">assignment</i>
+                    <span class="mdc-list-item__text">Document Signing</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <div class="mdc-drawer-scrim"></div>
+
+    <header class="mdc-top-app-bar mdc-top-app-bar--short app-bar" id="app-bar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
+                <span class="mdc-top-app-bar__title">{% block title %}{% endblock %}</span>
+            </section>
+        </div>
+    </header>
+
+    <main class="main-content" id="main-content">
+        <div class="mdc-top-app-bar--fixed-adjust">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+{% endblock %}
