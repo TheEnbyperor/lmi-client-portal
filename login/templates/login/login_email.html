@@ -5,9 +5,9 @@
     <base href="{{ base }}">
 {% endblock %}
 
-{% block content %}
+{% block body %}
     <div class="login-form">
-        <div class="mdc-elevation--z6">
+        <div class="mdc-card mdc-card--outlined">
             <img src="{% static "img/logo.png" %}" alt="Louise Misell Interiors logo">
             
             <p class="mdc-typography--body1">
@@ -27,6 +27,7 @@
     <style>
         body {
             padding: 50px;
+            display: block;
         }
 
         .login-form > div {

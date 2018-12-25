@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main_site',
     'login',
 ]
 
@@ -64,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'login.middleware.user_context',
             ],
         },
     },
@@ -121,7 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_AGE = 3600
 

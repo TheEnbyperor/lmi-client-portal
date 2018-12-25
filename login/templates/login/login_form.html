@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
-    <form class="login-form" method="post" action="">
+{% block body %}
+    <form class="login-form" method="post" action="{% url 'login:login' %}">
         {% csrf_token %}
 
-        <div class="mdc-elevation--z6">
+        <div class="mdc-card mdc-card--outlined">
             <img src="{% static "img/logo.png" %}" alt="Louise Misell Interiors logo">
 
             {% if message %}
@@ -23,6 +23,10 @@
                     </p>
                 {% endif %}
 
+                {% if redirect %}
+                    <input type="hidden" name="redirect" value="{{ redirect }}">
+                {% endif %}
+
                 <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
                      data-mdc-auto-init="MDCTextField">
                     <i class="material-icons mdc-text-field__icon" tabindex="0" role="button">email</i>
@@ -37,7 +41,7 @@
                 </div>
 
                 <div class="button-container">
-                    <button class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple" type="submit">
+                    <button class="mdc-button mdc-button--outlined" data-mdc-auto-init="MDCRipple" type="submit">
                         Submit
                     </button>
                 </div>
