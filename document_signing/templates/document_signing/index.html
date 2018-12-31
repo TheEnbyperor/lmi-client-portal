@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "main_site/base.html" %}
 
-</body>
-</html>
+{% block title %}Document Signing{% endblock %}
+
+{% block content %}
+    <h3 class="mdc-typography--headline3 section-header">To be signed</h3>
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+            {% if documents|length_is:0 %}
+                <div class="mdc-layout-grid__cell">
+                    <h4 class="mdc-typography--headline4 card-title">You have no documents needing signatures</h4>
+                </div>
+            {% else %}
+                {% for document in documents %}
+                    <div class="mdc-layout-grid__cell">
+                        <div class="mdc-card mdc-card--outlined">
+                            <div>
+                                <h4 class="mdc-typography--headline4 card-title">{{ document.name }}</h4>
+                            </div>
+                            <div class="mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <a href="{% url 'document_signing:view_document' document.id %}"
+                                       class="mdc-button mdc-button--outlined mdc-card__action mdc-card__action--button">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

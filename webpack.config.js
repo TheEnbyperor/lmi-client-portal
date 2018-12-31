@@ -1,9 +1,13 @@
 const autoprefixer = require('autoprefixer');
 
 module.exports = [{
-    entry: ['./assets/style/main.scss', './assets/js/index.js'],
+    entry: {
+        style: './assets/style/main.scss',
+        index: './assets/js/index.js',
+        pdfjsWorker: './node_modules/pdfjs-dist/build/pdf.worker.js',
+    },
     output: {
-        filename: './static/bundle.js',
+      filename: './static/[name].bundle.js',
     },
     module: {
         rules: [
@@ -35,9 +39,11 @@ module.exports = [{
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
+                exclude: /(node_modules|bower_components)/,
                 query: {
                     presets: ['es2015'],
-                    plugins: ['transform-object-assign']
+                    plugins: ['transform-object-assign'],
+                    cacheDirectory: true,
                 },
             }
         ]

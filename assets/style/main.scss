@@ -1,17 +1,55 @@
 $mdc-theme-primary: #2D76C4;
+$mdc-theme-surface: lighten($mdc-theme-primary, 50%);
 
 @import "@material/button/mdc-button";
 @import "@material/typography/mdc-typography";
 @import "@material/textfield/mdc-text-field";
 @import "@material/elevation/mdc-elevation";
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+@import "@material/card/mdc-card";
+@import "@material/icon-button/mdc-icon-button";
+@import "@material/layout-grid/mdc-layout-grid";
+@import "@material/linear-progress/mdc-linear-progress";
 
 * {
   box-sizing: border-box;
 }
 
 body {
+  display: flex;
   height: 100vh;
   margin: 0;
 }
 
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+  padding: 20px;
+  width: 100vw;
+}
+
+.app-bar {
+  position: absolute;
+}
+
+.section-header {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  margin: 10px;
+  text-align: center;
+}
+
 @import "login/login_form";
+@import "main_site/base";
+@import "document_signing/document";

@@ -24,6 +24,8 @@
       <list>
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/login/templates" />
+        <option value="$MODULE_DIR$/main_site/templates" />
+        <option value="$MODULE_DIR$/document_signing/templates" />
       </list>
     </option>
   </component>

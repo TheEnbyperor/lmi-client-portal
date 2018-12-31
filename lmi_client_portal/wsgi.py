@@ -1,5 +1,5 @@
 """
-WSGI config for document_signing project.
+WSGI config for lmi_client_portal project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'document_signing.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'lmi_client_portal.settings')
 
 application = get_wsgi_application()

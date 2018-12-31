@@ -11,13 +11,13 @@
         </div>
         <div class="mdc-drawer__content">
             <div class="mdc-list">
-               {% url 'main_site:dashboard' as dashboard_url %}
-                <a class="mdc-list-item{% if request.get_full_path == dashboard_url %} mdc-list-item--activated{% endif %}" href="{{ dashboard_url }}">
+                <a class="mdc-list-item{% if menu_item == "dashboard" %} mdc-list-item--activated{% endif %}"
+                   href="{% url 'main_site:dashboard' %}">
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
                     <span class="mdc-list-item__text">Home</span>
                 </a>
-               {% url 'document_signing:index' as document_signing_url %}
-                <a class="mdc-list-item{% if request.get_full_path == document_signing_url %} mdc-list-item--activated{% endif %}" href="{{ document_signing_url }}">
+                <a class="mdc-list-item{% if menu_item == "document_signing" %} mdc-list-item--activated{% endif %}"
+                   href="{% url 'document_signing:index' %}">
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">assignment</i>
                     <span class="mdc-list-item__text">Document Signing</span>
                 </a>

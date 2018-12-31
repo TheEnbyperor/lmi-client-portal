@@ -1,0 +1,21 @@
+{% extends "main_site/base.html" %}
+
+{% block title %}View Document - {{ document.name }}{% endblock %}
+
+{% block content %}
+    <h3 class="mdc-typography--headline3 section-header">{{ document.name }}</h3>
+    <div id="document" data-doc-url="{{ document.document.url }}">
+        <div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate">
+            <div class="mdc-linear-progress__buffering-dots"></div>
+            <div class="mdc-linear-progress__buffer"></div>
+            <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                <span class="mdc-linear-progress__bar-inner"></span>
+            </div>
+            <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                <span class="mdc-linear-progress__bar-inner"></span>
+            </div>
+        </div>
+        <canvas></canvas>
+        <script type="application/document-data">{{ document_data|safe }}</script>
+    </div>
+{% endblock %}
