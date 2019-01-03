@@ -4,7 +4,7 @@
 
 {% block content %}
     <h3 class="mdc-typography--headline3 section-header">{{ document.name }}</h3>
-    <div id="document" data-doc-url="{{ document.document.url }}">
+    <div id="document" data-doc-url="{% url 'document_signing:get_document_file' document.id %}">
         <div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate">
             <div class="mdc-linear-progress__buffering-dots"></div>
             <div class="mdc-linear-progress__buffer"></div>
