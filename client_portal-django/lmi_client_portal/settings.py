@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
-    'main_site',
+    # 'main_site',
     'login',
-    'document_signing',
+    # 'document_signing',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'login.middleware.user_context',
+                # 'login.middleware.user_context',
             ],
         },
     },
@@ -134,7 +134,7 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_AGE = 3600
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"), # your static/ files folder
+    os.path.join(BASE_DIR, "static"),
 ]
 
 EMAIL_HOST = 'mail.fluidmedia.wales'

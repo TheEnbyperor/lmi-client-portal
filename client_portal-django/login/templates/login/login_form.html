@@ -2,50 +2,13 @@
 {% load static %}
 
 {% block body %}
-    <form class="login-form" method="post" action="{% url 'login:login' %}">
-        {% csrf_token %}
-
+    <div class="login-form">
         <div class="mdc-card mdc-card--outlined">
             <img src="{% static "img/logo.png" %}" alt="Louise Misell Interiors logo">
 
-            {% if message %}
-                <p class="mdc-typography--body1">
-                    {{ message }}
-                </p>
-            {% else %}
-                <p class="mdc-typography--body1">
-                    Enter your email and we'll send you a magic link that will allow you to login
-                </p>
-
-                {% if error %}
-                    <p class="mdc-typography--body1 error">
-                        {{ error }}
-                    </p>
-                {% endif %}
-
-                {% if redirect %}
-                    <input type="hidden" name="redirect" value="{{ redirect }}">
-                {% endif %}
-
-                <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
-                     data-mdc-auto-init="MDCTextField">
-                    <i class="material-icons mdc-text-field__icon" tabindex="0" role="button">email</i>
-                    <input type="email" name="email" class="mdc-text-field__input" required>
-                    <div class="mdc-notched-outline">
-                        <div class="mdc-notched-outline__leading"></div>
-                        <div class="mdc-notched-outline__notch">
-                            <label for="tf-outlined" class="mdc-floating-label">Your Email</label>
-                        </div>
-                        <div class="mdc-notched-outline__trailing"></div>
-                    </div>
-                </div>
-
-                <div class="button-container">
-                    <button class="mdc-button mdc-button--outlined" data-mdc-auto-init="MDCRipple" type="submit">
-                        Submit
-                    </button>
-                </div>
-            {% endif %}
+            <p class="mdc-typography--body1">
+                {{ message }}
+            </p>
         </div>
-    </form>
+    </div>
 {% endblock %}
