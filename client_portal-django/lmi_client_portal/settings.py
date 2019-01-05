@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'main_site',
     'login',
     'document_signing',
@@ -141,3 +142,7 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = 'noreply@noreply.louisemisellinteriors.co.uk'
 EMAIL_HOST_PASSWORD = '7fpB4892fQ7EFDX9aNPY5HZ3jur#Mz3Y'
 EMAIL_USE_SSL = True
+
+GRAPHENE = {
+    'SCHEMA': 'lmi_client_portal.schema.schema'
+}
