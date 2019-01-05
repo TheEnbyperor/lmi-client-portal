@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
+    'corsheaders',
     # 'main_site',
     'login',
     # 'document_signing',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -146,3 +148,10 @@ EMAIL_USE_SSL = True
 GRAPHENE = {
     'SCHEMA': 'lmi_client_portal.schema.schema'
 }
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000'
+)
+CORS_URLS_REGEX = r'^/graphql/$'
+CORS_ALLOW_CREDENTIALS = True
+CORS_PREFLIGHT_MAX_AGE = 1

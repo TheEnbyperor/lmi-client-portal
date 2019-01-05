@@ -63,7 +63,7 @@ def start_login_flow(email, request):
     user.login_token_generated = datetime.datetime.now(datetime.timezone.utc)
     user.save()
 
-    return schema.LoginRequestResponseType(login_status=schema.LoginState.EMAIL_SENT, login_status_token=status_token)
+    return schema.RequestLogin(login_status=schema.LoginState.EMAIL_SENT, login_status_token=status_token)
 
 
 def get_login_flow_status(token, request):
@@ -72,7 +72,7 @@ def get_login_flow_status(token, request):
     except models.User.DoesNotExist:
         return schema.LoginRequestResponseType(login_status=schema.LoginState.INVALID_TOKEN)
 
-    if datetime.datetime.now(datetime.timezone.utc) - user.login_token_generated > datetime.timedelta(minutes=60):
+    if datetime.datetime.now(datetime.timezone.utc) - user.login_token_generated > datetime.timedelta(minutes=30):
         return schema.LoginRequestResponseType(login_status=schema.LoginState.INVALID_TOKEN)
 
     if not user.login_token_authenticated:

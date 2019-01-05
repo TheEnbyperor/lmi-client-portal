@@ -12,11 +12,13 @@ def auth(request, token):
 
     if datetime.datetime.now(datetime.timezone.utc) - user.login_token_generated > datetime.timedelta(minutes=60):
         return render(request, "login/login_form.html",
-                      {"message": "That link has expired. Please close this tab, and request a new one."})
+                      {"message": "That link has expired. Please close this tab, and request a new one in the "
+                                  "client portal."})
 
     user.login_token = None
     user.login_token_authenticated = True
     user.save()
 
     return render(request, "login/login_form.html",
-                  {"message": "Successfully authenticated! You may now close this tab."})
+                  {"message": "Successfully authenticated! You may now close this tab, and return to the "
+                              "client portal."})

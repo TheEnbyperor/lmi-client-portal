@@ -18,10 +18,10 @@ export default withRouter(class Menu extends Component {
 
     render() {
         return <AppContext.Consumer>
-            {appContext => <React.Fragment>
+            {appContext =>  <React.Fragment>
                 <Drawer modal open={this.state.drawerOpen} onClose={() => this.setState({drawerOpen: false})}>
                     <DrawerHeader>
-                        <DrawerTitle>{appContext.currentTitle}</DrawerTitle>
+                        <DrawerTitle>Louise Misell Interiors</DrawerTitle>
                         <DrawerSubtitle>q@misell.cymru</DrawerSubtitle>
                     </DrawerHeader>
 
@@ -43,7 +43,7 @@ export default withRouter(class Menu extends Component {
                         </List>
                     </DrawerContent>
                 </Drawer>
-                <TopAppBar short title={appContext.currentTitle} navigationIcon={<MaterialIcon
+                <TopAppBar short title={appContext.data.currentTitle} navigationIcon={<MaterialIcon
                     icon='menu'
                     onClick={() => this.setState({drawerOpen: !this.state.drawerOpen})}
                 />}>
