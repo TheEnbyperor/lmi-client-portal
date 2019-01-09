@@ -10,6 +10,12 @@ $mdc-theme-surface: lighten($mdc-theme-primary, 50%);
 @import '@material/react-text-field/index.scss';
 @import '@material/react-button/index.scss';
 @import '@material/react-linear-progress/index.scss';
+@import '@material/react-layout-grid/index.scss';
 
 @import "../../Login/style/Login";
 @import "../../NotFound/style/NotFound";
+@import "../../DocumentSigning/style/DocumentSigning";
+
+h1, h2, h3, h4 {
+  margin: 5px 0;
+}

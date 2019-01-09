@@ -9,6 +9,7 @@ import Menu from '../Menu/js/Menu';
 import Login from '../../Login/js/Login';
 import NotFound from "../../NotFound/js/NotFound";
 import Dashboard from "../../Dashboard/js/Dashboard";
+import DocumentSigning from "../../DocumentSigning/js/DocumentSigning";
 
 export const AppContext = React.createContext({});
 
@@ -124,7 +125,8 @@ export default class App extends Component {
                         {this.state.redirectToLogin && <Redirect to="/login"/>}
                         <Switch>
                             <PrimaryRoute path="/" exact component={Dashboard}/>
-                            <Route path="/login" component={Login}/>
+                            <PrimaryRoute path="/document-signing" component={DocumentSigning}/>
+                            <Route path="/login" exact component={Login}/>
                             <Route component={NotFound}/>
                         </Switch>
                     </ApolloProvider>
