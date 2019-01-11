@@ -39,9 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'graphene_django',
     'corsheaders',
-    # 'main_site',
     'login',
-    # 'document_signing',
+    'document_signing',
 ]
 
 MIDDLEWARE = [
